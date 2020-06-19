@@ -1,4 +1,4 @@
-Benchmark dot net results on my machine:
+Benchmark dot net results on my machine for 100k rows in each table:
 
 // * Summary *
 
@@ -21,3 +21,14 @@ Frequency=3410079 Hz, Resolution=293.2483 ns, Timer=TSC
 Outliers
   MyBench.AsyncEachCall: Default                -> 1 outlier  was  detected (2.52 s)
   MyBench.AsyncIndependantCallsWaitAll: Default -> 1 outlier  was  detected (1.74 s)
+
+
+For 1m of entities in each table numbers are:
+
+|                            Method |    Mean |   Error |  StdDev |
+|---------------------------------- |--------:|--------:|--------:|
+|             SynchronioslyEachCall | 19.40 s | 0.275 s | 0.230 s |
+|                     AsyncEachCall | 26.88 s | 0.205 s | 0.192 s |
+|      AsyncIndependantCallsWaitAll | 18.18 s | 0.235 s | 0.219 s |
+| AsyncIndependantCallsWithAwaiters | 18.35 s | 0.217 s | 0.203 s |
+
